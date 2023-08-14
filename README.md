@@ -6,3 +6,4 @@
 - python 3.10
 - pyautogui
 - bluestacks
+- qhd display 2560 x 1440
