@@ -4,6 +4,5 @@
 
 # Requirements
 - python 3.6
-- pyautogui
-- bluestacks
-- qhd display 2560 x 1440
+- bluestacks or likewise
+- qhd display (2560 x 1440)
