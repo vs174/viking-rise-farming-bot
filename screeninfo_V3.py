@@ -18,21 +18,21 @@ def move_by_image(image, i):  #담벼락 따라 이동
         print_timestamp(' ' * 5 + "{:>5}".format(i) + ' ' * 2 + image)
         x, y, w, h = cur_button
         find_x = x
-        if image == "05_cj_hour77":
+        if image == "./imgs/05_cj_hour77":
             move_down(x, y, y - 200 / 1, 0.2)
             move_leftright(x - 200 / 2, x, y, 0.2)
             # move_to_left(x, y)
 
-        if image == "05_cj_hour66":
+        if image == "./imgs/05_cj_hour66":
             move_down(x, y, y - 200 / 1, 0.2)
             # move_to_left(x, y)
 
-        if image == "05_cj_hour55":
+        if image == "./imgs/05_cj_hour55":
             move_down(x, y, y - 200 / 1, 0.2)
             move_leftright(x, x - 200 / 2, y, 0.2)
             # move_to_left(x, y)
 
-        if image == "05_cj_hour33":
+        if image == "./imgs/05_cj_hour33":
             move_leftright(x, x - 200 / 1, y, 0.2)
 
         pyautogui.click(1, random.choice([400, 800]))  # 회피 기동
@@ -59,44 +59,44 @@ def find_two(star):
     space_cnt = 1
     dalguji_yn = ""
     # 1. 2등급 자원 찾기(자신의 영역에서 찾는다)y
-    cur_button = pyautogui.locateOnScreen("02_cj_ssj_two.png", confidence=0.8,
+    cur_button = pyautogui.locateOnScreen("./imgs/02_cj_ssj_two.png", confidence=0.8,
                                           region=(500, 500, 2560 - 1000, 1600 - 1000))
 
     if cur_button is not None:  # 레벨 2 자원을 찾았으면
-        print_timestamp(' ' * space_cnt + '02_cj_ssj_two')
+        print_timestamp(' ' * space_cnt + './imgs/02_cj_ssj_two')
         x, y, w, h = cur_button
         find_x = x  # 건너 뛰려고
         pyautogui.click(cur_button)  # 해당 자원을 클릭 한다
         time.sleep(0.1)
 
         # 달구지 부족의 자원인지
-        cur_button = pyautogui.locateOnScreen("04_cj_dgj.png", confidence=0.8, region=(500, 500, 2560 - 1, 1600 - 1))
+        cur_button = pyautogui.locateOnScreen("./imgs/04_cj_dgj.png", confidence=0.8, region=(500, 500, 2560 - 1, 1600 - 1))
         if cur_button is not None:
             dalguji_yn = "y"
-            print_timestamp(' ' * space_cnt + '04_cj_dgj')
+            print_timestamp(' ' * space_cnt + './imgs/04_cj_dgj')
             x, y, w, h = cur_button
             pyautogui.click(cur_button)
 
             # 플래그 클릭
-            cur_button = pyautogui.locateOnScreen("04_cj_flag.png", confidence=0.8, region=(1, 1, 2560 - 1, 800))
+            cur_button = pyautogui.locateOnScreen("./imgs/04_cj_flag.png", confidence=0.8, region=(1, 1, 2560 - 1, 800))
             if cur_button is not None:
-                print_timestamp(' ' * space_cnt + '04_cj_flag')
+                print_timestamp(' ' * space_cnt + './imgs/04_cj_flag')
                 x, y, w, h = cur_button
                 pyautogui.click(cur_button)
 
                 # 개인 클릭
-                cur_button = pyautogui.locateOnScreen("04_cj_flag_gaein.png", confidence=0.8,
+                cur_button = pyautogui.locateOnScreen("./imgs/04_cj_flag_gaein.png", confidence=0.8,
                                                       region=(1, 1, 2560 - 1, 800))
                 if cur_button is not None:
-                    print_timestamp(' ' * space_cnt + '04_cj_flag_gaein')
+                    print_timestamp(' ' * space_cnt + './imgs/04_cj_flag_gaein')
                     x, y, w, h = cur_button
                     pyautogui.click(cur_button)
 
                     # 확인 클릭 : 북마킹이 등록 된다.
-                    cur_button = pyautogui.locateOnScreen("04_cj_confirm.png", confidence=0.8,
+                    cur_button = pyautogui.locateOnScreen("./imgs/04_cj_confirm.png", confidence=0.8,
                                                           region=(1, 1, 2560 - 1, 1600 - 1))
                     if cur_button is not None:
-                        print_timestamp(' ' * space_cnt + '04_cj_confirm')
+                        print_timestamp(' ' * space_cnt + './imgs/04_cj_confirm')
                         x, y, w, h = cur_button
                         pyautogui.click(cur_button)
                         star = star + 1  # 북마크 등록 완료 개수
@@ -118,17 +118,17 @@ def check_right_end_go_to_left_end(i):
     space_cnt = 1
     right_find = "no"
     left_find = "no"
-    cur_button = pyautogui.locateOnScreen("05_cj_hour77" + ".png", confidence=0.8,
+    cur_button = pyautogui.locateOnScreen("./imgs/05_cj_hour77" + ".png", confidence=0.8,
                                           region=(500, 500, 2560 - 500 * 2, 1600 - 500 * 2))
     if cur_button is not None:  # 찾았으면
         right_find = "yes"
     else:
-        cur_button = pyautogui.locateOnScreen("05_cj_hour66" + ".png", confidence=0.8,
+        cur_button = pyautogui.locateOnScreen("./imgs/05_cj_hour66" + ".png", confidence=0.8,
                                               region=(500, 500, 2560 - 500 * 2, 1600 - 500 * 2))
         if cur_button is not None:  # 찾았으면
             right_find = "yes"
         else:
-            cur_button = pyautogui.locateOnScreen("05_cj_hour55" + ".png", confidence=0.8,
+            cur_button = pyautogui.locateOnScreen("./imgs/05_cj_hour55" + ".png", confidence=0.8,
                                                   region=(500, 500, 2560 - 500 * 2, 1600 - 500 * 2))
             if cur_button is not None:  # 찾았으면
                 right_find = "yes"
@@ -137,19 +137,19 @@ def check_right_end_go_to_left_end(i):
         print_timestamp(' ' * space_cnt + 'right_find')
         move_down(1, 500, 500 - 250 , 1.0)
         while True:
-            cur_button = pyautogui.locateOnScreen("05_cj_hour1111" + ".png", confidence=0.8,
+            cur_button = pyautogui.locateOnScreen("./imgs/05_cj_hour1111" + ".png", confidence=0.8,
                                                   region=(500, 500, 2560 - 500 * 2, 1600 - 500 * 2))
             if cur_button is not None:  # 자원을 찾았으면
                 print_timestamp(' ' * space_cnt + '1 left_find')
                 left_find = "yes"
             else:
-                cur_button = pyautogui.locateOnScreen("05_cj_hour1212" + ".png", confidence=0.8,
+                cur_button = pyautogui.locateOnScreen("./imgs/05_cj_hour1212" + ".png", confidence=0.8,
                                                       region=(500, 500, 2560 - 500 * 2, 1600 - 500 * 2))
                 if cur_button is not None:  # 자원을 찾았으면
                     print_timestamp(' ' * space_cnt + '2 left_find')
                     left_find = "yes"
                 else:
-                    cur_button = pyautogui.locateOnScreen("05_cj_hour1313" + ".png", confidence=0.8,
+                    cur_button = pyautogui.locateOnScreen("./imgs/05_cj_hour1313" + ".png", confidence=0.8,
                                                           region=(500, 500, 2560 - 500 * 2, 1600 - 500 * 2))
                     if cur_button is not None:  # 자원을 찾았으면
                         print_timestamp(' ' * space_cnt + '3 left_find')
@@ -308,7 +308,7 @@ def move_xy(go_x, go_y, skip_yn):
     y = 0
     w = 0
     h = 0
-    cur_button = pyautogui.locateOnScreen("02_cj_ssj_star.png", confidence=0.8,
+    cur_button = pyautogui.locateOnScreen("./imgs/02_cj_ssj_star.png", confidence=0.8,
                                           region=(500, 0, 300, 300))
 
     if cur_button is not None:  # 찾았으면
@@ -470,25 +470,25 @@ def clean_area_no_use(coordinates, coord1, coord2, star_cnt, start_num):
 
 # 북마킹 가능 여부 : 북마킹 불가능 상태 이면 입력된 번호 그대로, 가능하다면 + 1 : 가능 상태라 함은 전부 출동...그리고...북마크 쓸만한 거 1개 남음.
 def num_bookmarking_nouse(num):
-    found_button = pyautogui.locateOnScreen('01_cj_44' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
+    found_button = pyautogui.locateOnScreen('./imgs/01_cj_44' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
     if found_button is not None:
-        print('01_cj_44')
+        print('./imgs/01_cj_44')
         x, y, w, h = found_button
-        found_button = pyautogui.locateOnScreen('02_cj_ssj_star' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
+        found_button = pyautogui.locateOnScreen('./imgs/02_cj_ssj_star' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
         if found_button is not None:
-            print('02_cj_ssj_star')
+            print('./imgs/02_cj_ssj_star')
             x, y, w, h = found_button
             pyautogui.click(x, y, button='left', clicks=1, interval=0.1)  # 자원 버튼 클릭
             time.sleep(0.2)
-            found_button = pyautogui.locateOnScreen('02_cj_ssj_star_redcross' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
+            found_button = pyautogui.locateOnScreen('./imgs/02_cj_ssj_star_redcross' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
             if found_button is not None:
-                print('02_cj_ssj_star_redcross')
+                print('./imgs/02_cj_ssj_star_redcross')
                 x, y, w, h = found_button
                 pyautogui.click(x, y, button='left', clicks=1, interval=0.1)  # 자원 버튼 클릭
 
-                found_button = pyautogui.locateOnScreen('02_cj_cross' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
+                found_button = pyautogui.locateOnScreen('./imgs/02_cj_cross' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
                 if found_button is not None:
-                    print('02_cj_cross')
+                    print('./imgs/02_cj_cross')
                     x, y, w, h = found_button
                     pyautogui.click(x, y, button='left', clicks=1, interval=0.1)  # 자원 버튼 클릭
 
@@ -497,9 +497,9 @@ def num_bookmarking_nouse(num):
     return num
 
 def num_bookmarking(num):
-    found_button = pyautogui.locateOnScreen('01_cj_44' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
+    found_button = pyautogui.locateOnScreen('./imgs/01_cj_44' + ".png", confidence=0.9, region=(0, 0, 2560 - 10, 1600 - 10))
     if found_button is not None:
-        print_timestamp('01_cj_44')
+        print_timestamp('./imgs/01_cj_44')
         num = num + 1
         return num
 

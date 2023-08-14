@@ -173,10 +173,10 @@ def find_and_click_button(array_find_button):
         history = find_button
         # print_timestamp("=" * 12 + history)
         # 채굴 대상 랜덤 선택(영지 근처에 자원이 없는 경우가 자주 있어서리.)
-        if find_button == "02_cj_ssj_dbg_gdgs" or find_button == "02_cj_ssj_dbg_csj" or find_button == "02_cj_ssj_dbg_bmj" or find_button == "02_cj_ssj_dbg_nj":
+        if find_button == "./imgs/02_cj_ssj_dbg_gdgs" or find_button == "./imgs/02_cj_ssj_dbg_csj" or find_button == "./imgs/02_cj_ssj_dbg_bmj" or find_button == "./imgs/02_cj_ssj_dbg_nj":
             # find_button = random.choice(["02_cj_ssj_dbg_gdgs", "02_cj_ssj_dbg_csj", "02_cj_ssj_dbg_bmj", "02_cj_ssj_dbg_nj", "02_cj_ssj_dbg_nprdj"])
             find_button = random.choice(
-                ["02_cj_ssj_dbg_nj", "02_cj_ssj_dbg_nj", "02_cj_ssj_dbg_nj", "02_cj_ssj_dbg_nj"])  # 니풀롱일족은 제거함. 에러발생으로, 02_cj_ssj_dbg_gdgs 2번으로 조정함...
+                ["./imgs/02_cj_ssj_dbg_nj", "./imgs/02_cj_ssj_dbg_nj", "./imgs/02_cj_ssj_dbg_nj", "./imgs/02_cj_ssj_dbg_nj"])  # 니풀롱일족은 제거함. 에러발생으로, 02_cj_ssj_dbg_gdgs 2번으로 조정함...
 
         # 버튼을 찾는다.
         found_button = pyautogui.locateOnScreen(find_button + ".png", confidence=0.9, region=(0, 0, 2560 - 10 , 1600 - 10 ))
@@ -232,13 +232,13 @@ def find_and_click_button(array_find_button):
                 break
 
             # 자원 채집 버튼들
-            elif find_button == "02_cj_ssj_dbg_gdgs" or find_button == "02_cj_ssj_dbg_csj" or find_button == "02_cj_ssj_dbg_bmj" or find_button == "02_cj_ssj_dbg_nj" or find_button == "02_cj_ssj_dbg_nprdj" or find_button == "02_cj_ssj_dbg_mst":
+            elif find_button == "./imgs/02_cj_ssj_dbg_gdgs" or find_button == "./imgs/02_cj_ssj_dbg_csj" or find_button == "./imgs/02_cj_ssj_dbg_bmj" or find_button == "./imgs/02_cj_ssj_dbg_nj" or find_button == "./imgs/02_cj_ssj_dbg_nprdj" or find_button == "./imgs/02_cj_ssj_dbg_mst":
                 pyautogui.click(x, y, button='left', clicks=1, interval=0.1)  # 자원 버튼 클릭
                 pyautogui.click(x, y - 200, button='left', clicks=1, interval=0.1)  # 검색 버튼 클릭, -100 : 자원버튼 위의 검색 버튼
                 # print_timestamp("." * 10 + find_button)
                 break
 
-            elif find_button == "02_cj_ssj_dbg_gs_cj_ss_cd_hg_star":
+            elif find_button == "./imgs/02_cj_ssj_dbg_gs_cj_ss_cd_hg_star":
                 pyautogui.click(x, y, button='left', clicks=1, interval=0.1)
                 # 마우스를 1000 위로 스크롤합니다.
                 pyautogui.click(x=1, y=500, button='left', clicks=1, interval=1)  # 족장 얼굴로 전환 해서 빠져 나오기
@@ -246,29 +246,29 @@ def find_and_click_button(array_find_button):
                 print('더블 행군 방지를 위하여 이동.')
                 break
 
-            elif find_button == "02_cj_ssj_dbg_gs_cj_ss":
+            elif find_button == "./imgs/02_cj_ssj_dbg_gs_cj_ss":
                 pyautogui.click(x, y, button='left', clicks=1, interval=0.1)
                 # print_timestamp("~" * 10 + find_button)
                 break
 
-            elif find_button == "02_cj_ssj_two_sohan":
+            elif find_button == "./imgs/02_cj_ssj_two_sohan":
                 # 마우스를 100픽셀 위로 스크롤합니다.
                 pyautogui.scroll(100)
                 pyautogui.click(x=1, y=1, button='left', clicks=1, interval=0.1) # 족장 얼굴로 전환 해서 빠져 나오기
                 break
 
-            elif find_button == "02_cj_ssj_move_del":
+            elif find_button == "./imgs/02_cj_ssj_move_del":
                 pyautogui.click(x, y, button='left', clicks=1, interval=0.1) # 자기 삭제하고.
                 pyautogui.click(x + 200, y, button='left', clicks=1, interval=0.1) # 200 : 동일화면 이동하기 클릭
                 break
 
-            elif find_button == "02_cj_cross":
+            elif find_button == "./imgs/02_cj_cross":
                 pyautogui.click(x, y, button='left', clicks=1, interval=0.1)
                 # 마우스를 100픽셀 위로 스크롤합니다.
                 pyautogui.scroll(100)
                 break
 
-            elif find_button == "02_cj_ssj_two": #  낼 여기 부터 ...
+            elif find_button == "./imgs/02_cj_ssj_two": #  낼 여기 부터 ...
 
                 found_button = pyautogui.locateOnScreen(find_button + ".png", confidence=0.8,
                                                         region=(500, 500, 2560 - 500, 1600 - 500))
@@ -304,39 +304,39 @@ try:
         # save_screenshot(0.1)
 
         find_buttons = [
-                        '04_cj_cancel',
-                        '04_cj_confirm',
-                        '02_cj_back',
-                        '01_cj_44',
-                        '02_cj_ssj_dbg_gs_cj_ss_cd_hg',
-                        '02_cj_cross',
-                        '02_cj_ssj_dbg_gs_cj_ss',
-                        '02_cj_ssj_dbg_gs_cj',
+                        './imgs/04_cj_cancel',
+                        './imgs/04_cj_confirm',
+                        './imgs/02_cj_back',
+                        './imgs/01_cj_44',
+                        './imgs/02_cj_ssj_dbg_gs_cj_ss_cd_hg',
+                        './imgs/02_cj_cross',
+                        './imgs/02_cj_ssj_dbg_gs_cj_ss',
+                        './imgs/02_cj_ssj_dbg_gs_cj',
 
-                        '02_cj_ssj_dbg_bmj',
-                        '02_cj_ssj_dbg',
+                        './imgs/02_cj_ssj_dbg_bmj',
+                        './imgs/02_cj_ssj_dbg',
 
-                        '02_cj_ssj',
-                        '02_cj_yj'
+                        './imgs/02_cj_ssj',
+                        './imgs/02_cj_yj'
                         ]
         find_buttonsX = [
-                        '04_cj_cancel',
-                        '04_cj_confirm',
-                        '02_cj_back',
-                        '01_cj_44',
-                        '02_cj_ssj_dbg_gs_cj_ss_cd_hg_star',
+                        './imgs/04_cj_cancel',
+                        './imgs/04_cj_confirm',
+                        './imgs/02_cj_back',
+                        './imgs/01_cj_44',
+                        './imgs/02_cj_ssj_dbg_gs_cj_ss_cd_hg_star',
 
-                        '02_cj_ssj_dbg_gs_cj_ss',
-                        '02_cj_ssj_dbg_gs_cj',
+                        './imgs/02_cj_ssj_dbg_gs_cj_ss',
+                        './imgs/02_cj_ssj_dbg_gs_cj',
 
-                        '02_cj_ssj_two_sohan',
-                        '02_cj_ssj_two',
-                        '02_cj_ssj_move_del',
-                        '02_cj_ssj_star',
-                        '02_cj_cross',
+                        './imgs/02_cj_ssj_two_sohan',
+                        './imgs/02_cj_ssj_two',
+                        './imgs/02_cj_ssj_move_del',
+                        './imgs/02_cj_ssj_star',
+                        './imgs/02_cj_cross',
 
-                        '02_cj_ssj',
-                        '02_cj_yj'
+                        './imgs/02_cj_ssj',
+                        './imgs/02_cj_yj'
                         ]
         if random.choice(['near','far']) == "near":
             cur_button = find_and_click_button(find_buttons)
@@ -360,7 +360,7 @@ try:
 
             print(str(same_button_cnt), prev_button, cur_button)
 
-            found_button = pyautogui.locateOnScreen("02_cj_cross.png", confidence=0.9,
+            found_button = pyautogui.locateOnScreen("./imgs/02_cj_cross.png", confidence=0.9,
                                                     region=(500, 500, 2560 - 500, 1600 - 500))
             if found_button is not None:
                 pyautogui.click(found_button)
