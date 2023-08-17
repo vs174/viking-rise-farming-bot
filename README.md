@@ -1,4 +1,4 @@
-# Run
+# Runs
 - top20_바이킹V3.py
 - screeninfo_V3.py
 
