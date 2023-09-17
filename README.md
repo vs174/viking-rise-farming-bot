@@ -7,8 +7,8 @@ It is optimized that my environment. (army unit, language, display resolution et
 
 # Runs
  
-  top20_바이킹V3.py
-  screeninfo_V3.py
+   top20_바이킹V3.py
+   screeninfo_V3.py
 
 I recommended change Viking rise Language settings to Korean. (It will be easier than change imgs)
  
