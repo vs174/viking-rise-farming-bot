@@ -3,7 +3,7 @@
 ![image](https://github.com/ShinHyun-soo/viking-rise-farming-bot/assets/69250097/7b132c77-9bba-4a26-b58d-56ef82de3a41)
 
 The bot recognizes the farm and moves by recognizing preset coordinates or buttons.    
-It is optimized that my environment. (army unit, language, display resolution etc ...)
+So it is optimized that my environment. (army unit, language, display resolution etc ...)
 
 # Runs
  
