@@ -1,6 +1,6 @@
-# 바이킹 라이즈의 채집
-# 로직 : 파견나간 영웅이 3/3이면 10분마다. 돌아온 영웅이 있는지 체크한다. -> 자동으로 시간계산을 해서 불필요한 리소스의 소모를 막는다.
-# 파견에서 돌아온 영웅이 있으면, 돋보기를 눌러서 파견까지 진행한다.
+# Foraging in Viking Rise
+# Logic: If there are 3/3 heroes dispatched, every 10 minutes. Check if any heroes have returned. -> Automatically calculates time to prevent unnecessary consumption of resources.
+# If a hero returns from dispatch, click the magnifying glass to proceed with dispatch.
 import datetime as dt
 import random
 import time
@@ -25,12 +25,12 @@ def image_to_string():
 
     time.sleep(0)
 
-    # 오른쪽    모니터의    너비와    높이를    가져옵니다.
+    # Get the width and height of the right monitor.
     right_monitor_width = pyautogui.size()[0]
     right_monitor_height = pyautogui.size()[1]
     # print(right_monitor_width)
     # print(right_monitor_height)
-    # 오른쪽    모니터의    화면을    캡처합니다.
+    # Capture the screen of the right monitor.
     screenshot_path = 'screenshot_time.png'
     # 이미지 저장
     pyautogui.screenshot(screenshot_path, region=(right_monitor_width / 2.35, right_monitor_height / 5, right_monitor_width
@@ -54,25 +54,25 @@ def save_screenshot(every_second):
     # delay_time(every_second)
 
 
-def get_min_time():   # 최소시간 구하기
+def get_min_time():   #Find the minimum time
     try:
         min_times = 3600 * 24  # 24시간
-        time_count = 0  # 부대의 갯수 = 각각의 부대의 복귀 시간의 갯수.
+        time_count = 0  #Number of units = Number of return times for each unit.
         min_time_text = '00:00:00'
         later_time_text = '00:00:00'
         hms = ''
 
         try_cnt = 0
         txt = ['00:00:02']
-        while try_cnt <= 10:  # 10번 재 시도. 숫자 인식 , 4*2 개의 리스트 배열
-            text_time = image_to_string()  # 이미지에서 시간을 구해낸다.
+        while try_cnt <= 10:  #Retry 10 times. Number recognition, 4*2 list array
+            text_time = image_to_string()  #Save time from images.
             txt = text_time.split('\n')
             try_cnt = try_cnt + 1
             if len(txt) == 8:
                 break
 
         print_timestamp('------->')
-        if len(txt) == 8:  # 행군배열이 4*2개이면 모두 읽은 것임.
+        if len(txt) == 8:  # If the marching arrangement is 4*2, all of them have been read.
             for tx in txt:
                 if tx != '':
                     # print_timestamp(tx)
@@ -89,7 +89,7 @@ def get_min_time():   # 최소시간 구하기
                         # print(h,m,s)
                         t = h * 60 * 60 + m * 60 + s
                         if t < min_times:
-                            min_times = t  # 부대 복귀 최단 시간 초 환산
+                            min_times = t  # Shortest time to return to unit converted to seconds
                             min_time_text = tx  # 부대 복귀 최단 시간 텍스트
                             # print_timestamp(str(tx) + '   ' + str(min_times) )
                             print('   ' + str(min_times), end='\n')
@@ -143,7 +143,7 @@ def click_button(screenshot_image_gray, array_find_button):
     # print_timestamp("                     find button --------- start")
     for find_button in array_find_button:
 
-        # 채굴 대상 랜덤 선택(영지 근처에 자원이 없는 경우가 자주 있어서리.)
+        # 채굴 대상 랜덤 선택(영지 근처에 자원이 없는 경우가 자주 있음.)
         find_button_image = cv2.imread(find_button + '.png')
         find_image_gray = cv2.cvtColor(find_button_image, cv2.COLOR_BGR2GRAY)
         # button_width, button_height = find_image_gray.shape[::-1]
@@ -172,7 +172,7 @@ def find_and_click_button(array_find_button):
     for find_button in array_find_button:
         history = find_button
         # print_timestamp("=" * 12 + history)
-        # 채굴 대상 랜덤 선택(영지 근처에 자원이 없는 경우가 자주 있어서리.)
+        # 채굴 대상 랜덤 선택(영지 근처에 자원이 없는 경우가 많음.)
         if find_button == "./imgs/02_cj_ssj_dbg_gdgs" or find_button == "./imgs/02_cj_ssj_dbg_csj" or find_button == "./imgs/02_cj_ssj_dbg_bmj" or find_button == "./imgs/02_cj_ssj_dbg_nj":
             # find_button = random.choice(["02_cj_ssj_dbg_gdgs", "02_cj_ssj_dbg_csj", "02_cj_ssj_dbg_bmj", "02_cj_ssj_dbg_nj", "02_cj_ssj_dbg_nprdj"])
             find_button = random.choice(
@@ -180,7 +180,7 @@ def find_and_click_button(array_find_button):
 
         # 버튼을 찾는다.
         found_button = pyautogui.locateOnScreen(find_button + ".png", confidence=0.9, region=(0, 0, 2560 - 10 , 1600 - 10 ))
-        # print('찾능중', find_button)
+        # print('찾는 중', find_button)
         if found_button is not None:
             # print(found_button)
             x, y, w, h = found_button
@@ -193,7 +193,7 @@ def find_and_click_button(array_find_button):
 
             # 출동 완료 : 부대 보기 화면 으로 이동 준비
             if find_button == "01_cj_44":
-                # delay_time(2)  # 2초후 부터 이제나 저제나 행군 완료를 기다 린다.
+                # delay_time(2)  # 2초후 부터 행군 완료 대기.
 
                 # 화살표 클릭 : 부대 보기 화면 전환
                 # find_buttons2 = ['03_cj_44_arrow']
@@ -268,7 +268,7 @@ def find_and_click_button(array_find_button):
                 pyautogui.scroll(100)
                 break
 
-            elif find_button == "./imgs/02_cj_ssj_two": #  낼 여기 부터 ...
+            elif find_button == "./imgs/02_cj_ssj_two":
 
                 found_button = pyautogui.locateOnScreen(find_button + ".png", confidence=0.8,
                                                         region=(500, 500, 2560 - 500, 1600 - 500))
